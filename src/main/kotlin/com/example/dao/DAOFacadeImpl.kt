@@ -2,6 +2,7 @@ package com.example.dao
 
 import com.example.models.Finances
 import com.example.dao.DatabaseSingleton.dbQuery
+import com.example.dto.CreateFinanceDTO
 import com.example.models.Finance
 import com.example.models.FinanceRelativeAt
 import com.example.models.currentUtc
@@ -22,17 +23,12 @@ class DaoFacadeImpl : DAOFacade {
     Finances.selectAll().map(::resultRowToFinance)
   }
 
-  override suspend fun createFinance(
-    title: String,
-    relativeAt: FinanceRelativeAt,
-    distanceDays: Int,
-    amount: Float
-  ): Finance? = dbQuery {
+  override suspend fun createFinance(createFinanceDTO: CreateFinanceDTO): Finance? = dbQuery {
     val insert = Finances.insert {
-      it[Finances.title] = title
-      it[Finances.relativeAt] = relativeAt
-      it[Finances.distanceDays] = distanceDays
-      it[Finances.amount] = amount
+      it[title] = createFinanceDTO.title
+      it[relativeAt] = createFinanceDTO.relativeAt
+      it[distanceDays] = createFinanceDTO.distanceDays
+      it[amount] = createFinanceDTO.amount
     }
 
     insert.resultedValues?.singleOrNull()?.let(::resultRowToFinance)

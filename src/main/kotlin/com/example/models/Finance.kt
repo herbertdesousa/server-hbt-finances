@@ -1,22 +1,11 @@
 package com.example.models
 
-import kotlinx.serialization.Serializable
 import org.jetbrains.exposed.dao.id.EntityID
 
 enum class FinanceRelativeAt {
   START_MONTH,
   END_MONTH
 }
-
-@Serializable
-data class FinanceDTO(
-  val id: Int,
-  var title: String,
-  var relativeAt: FinanceRelativeAt,
-  var distanceDays: Int,
-  var amount: Float,
-)
-
 
 object Finances : BaseTable("finances") {
   val title = varchar("title", 64)

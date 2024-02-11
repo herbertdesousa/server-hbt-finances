@@ -9,6 +9,9 @@ fun main(args: Array<String>): Unit = EngineMain.main(args)
 
 fun Application.module() {
     DatabaseSingleton.init(environment.config)
+
+    configureValidation()
+    configureStatusPage()
     configureHTTP()
     configureSerialization()
     configureRouting()

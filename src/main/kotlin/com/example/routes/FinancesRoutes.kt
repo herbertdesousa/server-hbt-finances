@@ -1,8 +1,12 @@
 package com.example.routes
 
 import com.example.dao.dao
+import com.example.dto.CreateFinanceDTO
+import com.example.dto.FinanceDTO
 import com.example.models.*
+import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
@@ -31,12 +35,9 @@ fun Routing.financesRouting() {
     }
 
     post {
-      val finance: FinanceDTO? = dao.createFinance(
-        title = "Financia I",
-        relativeAt = FinanceRelativeAt.START_MONTH,
-        distanceDays = 5,
-        amount = 20.0f,
-      )?.let {
+      val financeReq = call.receive<CreateFinanceDTO>()
+
+      val finance: FinanceDTO? = dao.createFinance(financeReq)?.let {
         FinanceDTO(
           id = it._id.value,
           title = it.title,
