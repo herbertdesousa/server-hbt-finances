@@ -8,7 +8,7 @@ import io.ktor.server.netty.*
 fun main(args: Array<String>): Unit = EngineMain.main(args)
 
 fun Application.module() {
-    DatabaseSingleton.init(environment.config)
+//    DatabaseSingleton.init(environment.config)
 
     configureValidation()
     configureStatusPage()

@@ -23,7 +23,7 @@ class DaoFacadeImpl : DAOFacade {
     Finances.selectAll().map(::resultRowToFinance)
   }
 
-  override suspend fun createFinance(createFinanceDTO: CreateFinanceDTO): Finance? = dbQuery {
+  /*override suspend fun createFinance(createFinanceDTO: CreateFinanceDTO): Finance? = dbQuery {
     val insert = Finances.insert {
       it[title] = createFinanceDTO.title
       it[relativeAt] = createFinanceDTO.relativeAt
@@ -32,7 +32,7 @@ class DaoFacadeImpl : DAOFacade {
     }
 
     insert.resultedValues?.singleOrNull()?.let(::resultRowToFinance)
-  }
+  }*/
 
 }
 

@@ -6,5 +6,5 @@ import com.example.models.FinanceRelativeAt
 
 interface DAOFacade {
   suspend fun allFinances(): List<Finance>
-  suspend fun createFinance(createFinanceDTO: CreateFinanceDTO): Finance?
+//  suspend fun createFinance(createFinanceDTO: CreateFinanceDTO): Finance?
 }

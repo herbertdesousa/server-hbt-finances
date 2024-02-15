@@ -3,8 +3,7 @@ package com.example.routes
 import com.example.dao.dao
 import com.example.dto.CreateFinanceDTO
 import com.example.dto.FinanceDTO
-import com.example.models.*
-import io.ktor.http.*
+import com.example.repositories.GoogleCalendarRepository
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
@@ -12,13 +11,14 @@ import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
+/*
 @Serializable
 data class FinancesDaysResponse(
   val todayInMonth: Int,
   val days: List<Int>,
 )
 
-fun Routing.financesRouting() {
+fun Routing.financesRouting2() {
   route("/finances") {
     get {
       val finances: List<FinanceDTO> = dao.allFinances().map {
@@ -65,3 +65,4 @@ fun Routing.financesRouting() {
     }
   }
 }
+*/

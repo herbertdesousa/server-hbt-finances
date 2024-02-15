@@ -1,6 +1,5 @@
 package com.example.repositories
 
-import com.example.routes.googleCalendarRepository
 import io.ktor.client.call.*
 import io.ktor.client.plugins.*
 import io.ktor.client.request.*
@@ -12,7 +11,15 @@ import kotlinx.serialization.Serializable
 data class GoogleCalendar(val id: String, val summary: String)
 
 @Serializable
-data class GoogleEvent(val id: String)
+data class GoogleEventDate(val date: String)
+
+@Serializable
+data class GoogleEvent(
+  val id: String,
+  val summary: String,
+  val start: GoogleEventDate,
+  val end: GoogleEventDate,
+)
 
 const val TOKEN = ""
 
@@ -71,8 +78,38 @@ class GoogleCalendarRepository {
     response.items
   }
 
-  fun createEvent() {
+  fun createEvent(
+    summary: String,
+    startDateString: String,
+    endDateString: String,
+    recurrence: String? = null
+  ): GoogleEvent = runBlocking {
+    val response = client
+      .post("calendars/${calendarId}/events") {
+        @Serializable
+        data class RequestDate(val date: String)
 
+        @Serializable
+        data class Request(
+          val summary: String,
+          val start: RequestDate,
+          val end: RequestDate,
+          val recurrence: List<String>
+        )
+
+        contentType(ContentType.Application.Json)
+        setBody(
+          Request(
+            summary,
+            start = RequestDate(startDateString),
+            end = RequestDate(endDateString),
+            recurrence = if (recurrence == null) emptyList() else listOf(recurrence)
+          )
+        )
+      }
+      .body<GoogleEvent>()
+
+    response
   }
 }
 
