@@ -1,6 +1,7 @@
 package com.example.dao
 
 //import com.example.models.Finances
+import com.example.models.CalendarEventRecurrences
 import com.example.models.CalendarEvents
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
@@ -34,6 +35,7 @@ object DatabaseSingleton {
     transaction(database) {
 //      SchemaUtils.create(Finances)
       SchemaUtils.create(CalendarEvents)
+      SchemaUtils.create(CalendarEventRecurrences)
     }
   }
 

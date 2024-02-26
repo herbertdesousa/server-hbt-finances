@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 class CreateCalendarEventDTO (
     val label: String,
     val startAt: LocalDateTime,
-    val endAt: LocalDateTime?,
+    val endAt: LocalDateTime? = null,
 )
