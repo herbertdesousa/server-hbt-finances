@@ -1,13 +1,13 @@
 package com.example.plugins
 
-import com.example.dto.CreateFinanceDTO
+//import com.example.dto.CreateFinanceDTO
 import io.ktor.server.application.*
 import io.ktor.server.plugins.requestvalidation.*
 import java.time.format.DateTimeFormatter
 
 fun Application.configureValidation() {
   install(RequestValidation) {
-    validate<CreateFinanceDTO> { finance ->
+    /*validate<CreateFinanceDTO> { finance ->
       if (finance.summary.isBlank()) {
         return@validate ValidationResult.Invalid("Title is Required")
       }
@@ -21,6 +21,6 @@ fun Application.configureValidation() {
       }
 
       ValidationResult.Valid
-    }
+    }*/
   }
 }

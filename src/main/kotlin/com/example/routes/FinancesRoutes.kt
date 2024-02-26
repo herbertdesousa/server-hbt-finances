@@ -1,5 +1,5 @@
 package com.example.routes
-
+/*
 import com.example.dao.dao
 import com.example.dto.CreateFinanceDTO
 import com.example.dto.FinanceDTO
@@ -11,7 +11,7 @@ import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
-/*
+
 @Serializable
 data class FinancesDaysResponse(
   val todayInMonth: Int,

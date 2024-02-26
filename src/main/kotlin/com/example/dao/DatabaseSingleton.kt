@@ -1,15 +1,16 @@
 package com.example.dao
 
-import com.example.models.Finances
+//import com.example.models.Finances
+import com.example.models.CalendarEvents
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.server.config.*
 import kotlinx.coroutines.Dispatchers
 import org.flywaydb.core.Flyway
 import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.transactions.*
-import org.jetbrains.exposed.sql.transactions.experimental.*
+import org.jetbrains.exposed.sql.SchemaUtils
+import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
+import org.jetbrains.exposed.sql.transactions.transaction
 import javax.sql.DataSource
 
 object DatabaseSingleton {
@@ -31,7 +32,8 @@ object DatabaseSingleton {
     initFlyway(dataSource)
 
     transaction(database) {
-      SchemaUtils.create(Finances)
+//      SchemaUtils.create(Finances)
+      SchemaUtils.create(CalendarEvents)
     }
   }
 

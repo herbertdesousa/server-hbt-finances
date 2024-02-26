@@ -1,6 +1,6 @@
 package com.example.routes.finances
 
-import com.example.dto.CreateFinanceDTO
+/*import com.example.dto.CreateFinanceDTO
 import com.example.repositories.googleCalendarRepository
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -20,4 +20,4 @@ fun Route.financeCreateRoute() {
 
     call.respond(response)
   }
-}
+}*/

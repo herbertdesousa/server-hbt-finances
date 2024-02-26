@@ -2,6 +2,7 @@ package com.example.models
 
 import org.jetbrains.exposed.dao.id.EntityID
 
+/*
 enum class FinanceRelativeAt {
   START_MONTH,
   END_MONTH
@@ -23,3 +24,4 @@ data class Finance(
 ) : BaseEntity(_id, Finances) {
   companion object : BaseEntityClass<Finance>(Finances)
 }
+*/

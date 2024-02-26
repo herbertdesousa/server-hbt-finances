@@ -1,5 +1,6 @@
 package com.example.routes.finances
 
+/*
 import com.example.repositories.googleCalendarRepository
 import io.ktor.server.application.*
 import io.ktor.server.response.*
@@ -11,4 +12,4 @@ fun Route.financeListRoute() {
 
     call.respond(events)
   }
-}
+}*/

@@ -1,5 +1,6 @@
 package com.example.dto
 
+/*
 import com.example.models.FinanceRelativeAt
 import kotlinx.serialization.Serializable
 
@@ -11,3 +12,4 @@ data class FinanceDTO(
   var distanceDays: Int,
   var amount: Float,
 )
+*/
