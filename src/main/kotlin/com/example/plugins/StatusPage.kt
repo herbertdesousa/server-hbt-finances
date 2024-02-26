@@ -15,8 +15,6 @@ data class RequestValidationExceptionRes(val message: String) {
 fun Application.configureStatusPage() {
   install(StatusPages) {
     exception<RequestValidationException> { call, cause ->
-      print("\n\nexception123: $cause\n\n")
-
       call.respond(HttpStatusCode.BadRequest, RequestValidationExceptionRes(cause.reasons.joinToString()))
     }
   }
