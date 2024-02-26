@@ -55,6 +55,9 @@ dependencies {
     implementation("org.postgresql:postgresql:$postgresql_version")
     implementation("com.zaxxer:HikariCP:$hikaricp_version")
 
+    implementation("org.mnode.ical4j:ical4j:2.2.0")
+
+    testImplementation(kotlin("test"))
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
